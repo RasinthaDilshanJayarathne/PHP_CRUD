@@ -1,7 +1,33 @@
-<html>
+<?php
+ //include 'connect.php';
+$con = new mysqli("127.0.0.1:3307","root","","crud");
+
+
+if (isset($_POST['submit'])){
+     $name = $_POST['name'];
+     $email = $_POST['email'];
+     $mobile = $_POST['mobile'];
+     $password = $_POST['password'];
+
+     $sql = "INSERT INTO crud (name,email,mobile,password) VALUES ('$name','$email','$mobile','$password')";
+     $result = mysqli_query($con,$sql);
+
+     if ($result){
+         echo "Data inserted successfully";
+     }else{
+         die(mysqli_error($con));
+     }
+ }
+?>
+
+<!doctype html>
+<html lang="en">
 <head>
-    <title>Crud Operation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale-1,shrink-to-fit=no">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Crud Operation</title>
 </head>
 <body>
 <div class="container my-5">
@@ -24,7 +50,7 @@
             <input type="text" class="form-control" placeholder="Enter your password" name="password" autocomplete="off">
         </div>
         <br>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
     </form>
 </div>
 </body>
