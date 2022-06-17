@@ -1,6 +1,6 @@
 <?php
 
-$con = new mysqli("127.0.0.1:3307","root","","crud");
+$con = new mysqli("127.0.0.1:3307", "root", "", "crud");
 
 
 ?>
@@ -36,10 +36,10 @@ $con = new mysqli("127.0.0.1:3307","root","","crud");
         <?php
 
         $sql = "SELECT * FROM crud";
-        $result = mysqli_query($con,$sql);
+        $result = mysqli_query($con, $sql);
 
-        if ($result){
-            while ($row = mysqli_fetch_assoc($result)){
+        if ($result) {
+            while ($row = mysqli_fetch_assoc($result)) {
                 $id = $row['id'];
                 $name = $row['name'];
                 $email = $row['email'];
@@ -47,28 +47,20 @@ $con = new mysqli("127.0.0.1:3307","root","","crud");
                 $password = $row['password'];
 
                 echo '<tr>
-            <th scope="row">'.$id.'</th>
-            <td>'.$name.'</td>
-            <td>'.$email.'</td>
-            <td>'.$mobile.'</td>
-            <td>'.$password.'</td>
-
+            <th scope="row">' . $id . '</th>
+            <td>' . $name . '</td>
+            <td>' . $email . '</td>
+            <td>' . $mobile . '</td>
+            <td>' . $password . '</td>
+            <td>
+            <button class="btn btn-primary"><a class="text-light" href="update.php">Update</a></button>
+            <button class="btn btn-danger"><a class="text-light" href="delete.php">Delete</a></button>
+            </td>
         </tr>';
             }
         }
-
         ?>
-       <!-- <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-        </tr>-->
+
         </tbody>
     </table>
 
