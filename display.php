@@ -54,7 +54,7 @@ $con = new mysqli("127.0.0.1:3307", "root", "", "crud");
             <td>' . $password . '</td>
             <td>
             <button class="btn btn-primary"><a class="text-light" href="update.php">Update</a></button>
-            <button class="btn btn-danger"><a class="text-light" href="delete.php">Delete</a></button>
+            <button class="btn btn-danger"><a class="text-light" href="delete.php?deleteid='.$id.'">Delete</a></button>
             </td>
         </tr>';
             }
